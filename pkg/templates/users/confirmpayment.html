@@ -1,0 +1,21 @@
+{% extends "users/dashboard.html" %}
+
+{% block content %} 
+
+
+<div class="row justify-content-center">
+    <div class="col-md-9 mt-5">
+        <div class="row justify-content-center px-5">
+            <div class="col-md-6 text-center bg-white " style="border-radius: 5px;">
+                <h3><i class="fa-brands fa-ethereum text-primary py-3"></i> USDT </h3>
+                <img src="/static/images/eth.jpeg" class="img-fluid" alt="" style="height: 70%;">
+               <h3 class="pt-5">click to copy address <a><i class="fa-solid fa-copy" onclick="copyU()"></i><p class="textToCopyu" style="display: none;">pampam</p></a></h3>
+               
+            </div>
+            <p  class="text-success copyMsg1 text-center" style="display:none;">Address copied to clipboard!</p>
+            
+        </div>
+    </div>
+    
+</div>
+{% endblock content%}

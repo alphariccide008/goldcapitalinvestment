@@ -1,0 +1,104 @@
+{% extends "users/index.html" %}
+
+{% block content %}
+
+ <!-- First Banner -->
+ <div class="row banner justify-content-center text-center">
+    <div class="col-md-3 inner-banner">
+        <span></span><h3 class="text-white"><span class="px-3"><a href="{{url_for('homepage')}}">Home</a></span> <i class="fa-solid fa-arrow-right px-2"></i> <a href="plan.html" class="px-2">Plans</a></h3>
+    </div>
+</div>
+<!-- End of First Banner -->
+<!-- Second Banner About Us-->
+<div class="row justify-content-center p-external-border text-center">
+    <div class="col-md-12 px-5 my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <h3 class="pt-3" style="color: azure; margin-top: 50px; opacity: 70%;">Choose Your Plan</h3>
+                <hr style="border: 2px solid rgb(252, 255, 255);
+                margin-right:90px;
+                margin-left:90px;">
+            </div>
+        </div>
+        <div class="row justify-content-center px-2">
+            
+            <div class="col-md-3 p-border px-0  m-3  mb-4">
+                <div class="border-shape text-white py-4" style="background-color: rgb(10, 74, 26);"><h3>STARTER PLAN</h3></div>
+                <div class="py-4" style="background-color: rgb(115, 189, 92);"><h3>5% DEPOSIT BONUS</h3></div>
+                <div>
+                    <ul>
+                        <li class="pt-4">Minimum: 1 Btc</li>
+                        <li>Maximium: 5 Btc</li>
+                        <li>Senior Broker</li>
+                        <li>Beginners Guide</li>
+                        <li><a href="{{ url_for('login') }}" class="btn btn-success px-4" style="background-color:  rgba(37, 173, 32, 0.51); color: azure;">GET STARTED</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-3 p-border px-0  m-3 mb-4">
+                <div class=" border-shape text-white py-4" style="background-color: rgb(97, 29, 97);"><h3>PRO PLAN</h3></div>
+                <div class="py-4" style="background-color: rgb(147, 80, 147);"><h3>10% DEPOSIT BONUS</h3></div>
+                <div >
+                    <ul >
+                        <li class="pt-4">Minimum: 5 Btc</li>
+                        <li>Maximium: 10 Btc</li>
+                        <li>EP Broker</li>
+                        <li>Pro Guide</li>
+                        <li><a href="{{ url_for('login') }}" class="btn px-3" style="background-color: rgb(156, 75, 165); color: white;">GET STARTED</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-3 p-border px-0  m-3  mb-4">
+                <div class="border-shape text-white py-4" style="background-color: rgb(67, 15, 15);"><h3>PREMIUM PLAN</h3></div>
+                <div class="py-4" style="background-color: rgb(111, 40, 40);"><h3>15% DEPOSIT BONUS</h3></div>
+                <div >
+                    <ul>
+                        <li class="pt-4">Minimum: 10 Btc</li>
+                        <li>Maximium:25  Btc</li>
+                        <li>Senior Broker</li>
+                        <li>Beginners Guide</li>
+                        <li><a href="{{ url_for('login') }}" class="btn btn-danger px-3 text-white" style="background-color: rgb(115, 35, 35);">GET STARTED</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-3 p-border px-0  m-3  mb-4">
+                <div class=" border-shape text-white py-4" style="background-color: rgb(173, 125, 4);"><h3>GOLD PREMIUM PLAN</h3></div>
+                <div class="py-4" style="background-color: rgb(206, 186, 72) ;"><h3>25% DEPOSIT BONUS</h3></div>
+                <div>
+                    <ul>
+                        <li class="pt-4">Minimum: 15 Btc</li>
+                        <li>Maximium: 30 Btc</li>
+                        <li>Star Broker</li>
+                        <li>advanced Guide</li>
+                        <li><a href="{{ url_for('login') }}" class="btn btn-warning px-3 text-white" style="background-color: rgb(184, 133, 4);">GET STARTED</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-3 p-border px-0  m-3 mb-4">
+                <div class=" border-shape text-white py-4" style="background-color: rgb(187, 58, 101);" ><h3>PINNACLE PLAN</h3></div>
+                <div class="py-4" style="background-color: rgb(193, 112, 139);"><h3>30% DEPOSIT BONUS</h3></div>
+                <div>
+                    <ul>
+                        <li class="pt-4">Minimum: 50 Btc</li>
+                        <li>Maximium: Unlimited</li>
+                        <li>Special Broker</li>
+                        <li>Special Guide</li>
+                        <li><a href="{{ url_for('login') }}" class="btn px-3 text-white" style="background-color: rgb(214, 136, 162);">GET STARTED</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            
+           
+            
+        </div>
+    </div>
+</div>
+<!-- End of second Banner about us -->
+
+
+{% endblock content %}

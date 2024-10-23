@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="This is a crypto website used to make investments into forex">
+	<meta name="author" content="">
+	<meta name="keywords" content="Bitcoin,ethereum,livechar">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="/static/fontawesome/css/all.min.css"> 
+	<!-- <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png" /> -->
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+	<title>{{title}}</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<style type="text/css">
+	body{
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+		background-color: rgb(220, 220, 220);
+	}
+	.ibox-content h1,.ibox-content h2,.ibox-content h3,.ibox-content h4,.ibox-content h5,.ibox-title h1,.ibox-title h2,.ibox-title h3,.ibox-title h4,.ibox-title h5 {
+	margin-top: 5px
+}
+	#preloader{
+            opacity: 80%;
+            background: #000 url(/static/images/gif4.gif) no-repeat center center;
+            background-size: 15%;
+            height: 100vh;
+            width: 100%;
+            position: fixed;  
+            z-index: 100;
+        }
+	
+	
+</style>
+<body class="">
+	<!-- this is for the Pre-loader -->
+	<div id="preloader"></div>
+	<!-- end of the pre-loader -->
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar bg-danger js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="{{ url_for('dashboard')}}">
+          <span class="align-middle"><span style="color: rgb(180, 136, 22);">Gold</span> Financial Investment</span>
+        </a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Pages
+					</li>
+
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="{{ url_for('dashboard')}}">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+            </a>
+					</li>
+
+					
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('withdrawal')}}">
+              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Withdrawal</span>
+            </a>
+					</li>
+
+					
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Make an Investment</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('history')}}">
+              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Transaction History</span>
+            </a>
+					</li>
+				</ul>
+
+				
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+          <i class="hamburger align-self-center"></i>
+        </a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							
+							
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="message-square"></i>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
+								<div class="dropdown-menu-header">
+									<div class="position-relative">
+										Comments
+									</div>
+								</div>
+								
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">Show all Comments</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                <i class="align-middle" data-feather="settings"></i>
+              </a>
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+				
+				<img src="/static/profiles/default.png" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="avatar img-fluid rounded me-1" alt="default image" />
+			
+				<span class="text-dark">{{ userdeets.fname}} {{userdeets.lname}}</span>
+              </a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+								
+								<div class="dropdown-divider"></div>
+
+								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ url_for('logout')}}">Log out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+            {% block content%}
+			<div class="row px-1 my-2 p-2">
+				<div class="col-md-12">
+					
+					<div class="row justify-content-center">
+						
+						<div class="col-md-3 py-2 mx-2 card">
+							
+							<p>BTC Balance</p>
+							<h4>{{ userdeets.btc_balance }}BTC</h4>
+						</div>
+						
+						<div class="col-md-3 py-2  mx-5 card">
+							<p>Checking Balance</p>
+							<h4>${{ userdeets.freezed_balance }}.00</h4>
+						</div>
+						<div class="col-md-3 py-2 mx-1 card">
+							<p>USDT Balance</p>
+							<h4>{{ userdeets.eth_balance }}USDT</h4>
+						</div>
+						
+						
+
+					</div>
+
+				</div>
+			</div>
+			<!-- This the live stock chart -->
+			<div class="row justify-content-center px-3 mb-4 ">
+					<div class="justify-content-center " >
+						<div class="col-md-12 p-3 bg-white" style="border-radius: 10px;">
+							<h3 class=" py-3">Market Data</h3>
+								<script src="https://s3.tradingview.com/tv.js"></script>
+								<script>
+									new TradingView.widget(
+										{
+										"width": "100%",
+										"height": 550,
+										"symbol": "BITSTAMP:BTCUSD",
+										"interval": "D",
+										"timezone": "Etc/UTC",
+										"theme": "dark",
+										"style": "1",
+										"locale": "en",
+										"toolbar_bg": "#f1f3f6",
+										"enable_publishing": false,
+										"withdateranges": true,
+										"hide_side_toolbar": false,
+										"allow_symbol_change": true,
+										"show_popup_button": true,
+										"popup_width": "1000",
+										"popup_height": "650",
+										"container_id": "tradingview_e8053"
+										}
+									);
+								</script>
+						</div>
+					</div>
+			</div>
+			<!-- end of livestock -->
+			<div class="row justify-content-center mx-2 mb-3">
+				<div class="col-md-12">
+					<div class="row justify-content-center">
+						<div class="col-md-8 p-3 bg-white mb-3" style="border-radius: 10px;">
+							<h3 class="py-4">Forex Cross Rate</h3>
+							<script type="text/javascript" async>
+								new TradingView.widget({
+									"width": "100%",
+									"height": 400,
+									"currencies": [
+										"EUR", "USD", "JPY", "GBP", "CHF", "AUD", "CAD", "NZD", "CNY"
+									],
+									"isTransparent": false,
+									"colorTheme": "dark",
+									"locale": "en"
+								});
+							</script>
+						
+							<div class="row mt-3 justify-content-center">
+								<div class="col-md-11">
+									<h1 class="text-center py-3">Transaction history</h1>
+									{% if deets %}
+									<table class="table table-striped text-center table-bordered bg-white">
+										<thead>
+											<tr>
+												<th>S/N</th>
+												<th>Transaction Plan</th>
+												<th>Transaction Type</th>
+												<th>Transaction Amount</th>
+												<th>Action</th>
+												<th>Transaction Status</th>
+												<th>Transaction Date</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for x in deets %}
+											<tr>
+												<td>{{ loop.index }}.</td>
+												<td>{{ x.trans_plan }}</td>
+												<td>{{ x.trans_name }}</td>
+												<td>{{ x.trans_amount }}</td>
+												<td>{{ x.trans_action }}</td>
+												<td>{{ x.trans_status }}</td>
+												<td>{{ x.trans_date }}</td>                 
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+									<div class="text-center">
+										<a href="{{ url_for('history') }}" class="btn btn-outline-primary px-4 py-2">All transactions</a>
+									</div>
+									{% else %}
+									<div class="alert alert-info text-center">  
+										NO TRANSACTION FOUND
+									</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 bg-white mx-3 ml-3 px-2" style="border-radius: 10px;">
+							<h3 class="py-2">Stock Market Chart</h3>
+							<script type="text/javascript" async>
+								new TradingView.widget({
+									"colorTheme": "dark",
+									"dateRange": "12M",
+									"exchange": "US",
+									"showChart": true,
+									"locale": "en",
+									"largeChartUrl": "",
+									"isTransparent": false,
+									"showSymbolLogo": false,
+									"width": "100%",
+									"height": "600",
+									"plotLineColorGrowing": "rgba(0, 0, 0, 1)",
+									"plotLineColorFalling": "rgba(33, 150, 243, 1)",
+									"gridLineColor": "rgba(240, 243, 250, 1)",
+									"scaleFontColor": "rgba(120, 123, 134, 1)",
+									"belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+									"belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+									"symbolActiveColor": "rgba(33, 150, 243, 0.12)"
+								});
+							</script>
+						</div>
+						
+					</div>
+					
+			</div>
+			
+  <!-- Modal -->
+ 
+{% endblock content%}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header text-center">
+		  <h5 class="modal-title" id="exampleModalLabel" >Make An Investment</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <div class="row justify-content-center">
+			<div class="col-md-8">
+				<a href="{{ url_for('btc_payment')}}" class="btn form-control  my-2" style="background-color: rgb(200, 203, 206);"><h3><i class="fa-brands fa-bitcoin text-warning"></i> BTC</h3></i></a>
+				<a href="{{ url_for('eth_payment')}}" class="btn form-control  my-2" style="background-color: rgb(200, 203, 206);"><h3><i class="fa-brands fa-ethereum text-primary"></i> ETH</h3></i></a>
+				<a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="btn form-control  my-2" style="background-color: rgb(200, 203, 206);"><h3><i class="fa-solid fa-money-bill-transfer text-success"></i> Wire Transfer</h3></i></a>
+
+				
+						
+					
+					
+				</form>
+			</div>
+		  </div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+			
+		</div>
+	</div>
+	<script>
+    
+        var loader = document.getElementById("preloader");
+    
+        window.addEventListener("load",function(){
+            loader.style.display ="none"
+        })
+		function copyText() {
+            // Get the text to copy
+            var textToCopy = document.querySelector('.textToCopy').innerText;
+    
+            // Create a temporary textarea element to hold the text
+            var tempTextarea = document.createElement('textarea');
+            tempTextarea.value = textToCopy;
+    
+            // Add the textarea to the document
+            document.body.appendChild(tempTextarea);
+    
+            // Select the text
+            tempTextarea.select();
+            tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+    
+            // Copy the text to the clipboard
+            document.execCommand('copy');
+    
+            // Remove the textarea from the document
+            document.body.removeChild(tempTextarea);
+    
+            // Show a message indicating the text was copied
+            var copyMessage = document.querySelector('.copyMessage');
+            copyMessage.style.display = 'block';
+    
+            // Hide the message after 3 seconds
+            setTimeout(function() {
+                copyMessage.style.display = 'none';
+            }, 3000);
+			
+        }
+		function copyT() {
+            // Get the text to copy
+            var textToCopy = document.querySelector('.textToCop').innerText;
+    
+            // Create a temporary textarea element to hold the text
+            var tempTextarea = document.createElement('textarea');
+            tempTextarea.value = textToCopy;
+    
+            // Add the textarea to the document
+            document.body.appendChild(tempTextarea);
+    
+            // Select the text
+            tempTextarea.select();
+            tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+    
+            // Copy the text to the clipboard
+            document.execCommand('copy');
+    
+            // Remove the textarea from the document
+            document.body.removeChild(tempTextarea);
+    
+            // Show a message indicating the text was copied
+            var copyMessage = document.querySelector('.copyMsg');
+            copyMessage.style.display = 'block';
+    
+            // Hide the message after 3 seconds
+            setTimeout(function() {
+                copyMessage.style.display = 'none';
+            }, 3000);
+			
+        }
+		function copyU() {
+            // Get the text to copy
+            var textToCopy = document.querySelector('.textToCopyu').innerText;
+    
+            // Create a temporary textarea element to hold the text
+            var tempTextarea = document.createElement('textarea');
+            tempTextarea.value = textToCopy;
+    
+            // Add the textarea to the document
+            document.body.appendChild(tempTextarea);
+    
+            // Select the text
+            tempTextarea.select();
+            tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+    
+            // Copy the text to the clipboard
+            document.execCommand('copy');
+    
+            // Remove the textarea from the document
+            document.body.removeChild(tempTextarea);
+    
+            // Show a message indicating the text was copied
+            var copyMessage = document.querySelector('.copyMsg1');
+            copyMessage.style.display = 'block';
+    
+            // Hide the message after 3 seconds
+            setTimeout(function() {
+                copyMessage.style.display = 'none';
+            }, 3000);
+			
+        }
+		
+		
+		
+    
+      </script>
+	 
+	 <script src="//code.jivosite.com/widget/qNWrW38aXT" async></script>
+
+
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/app.js"></script>
+
+	
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h2 id="offcanvasRightLabel" class="text-center">Profile</h2>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    {% if userdeets %}
+	<div class="row">
+		<div class="col ">
+			<div class="card mb-3">
+				<div class="card-body text-center">
+					
+					<img src="/static/images/default.png" alt="default image" class="img-fluid rounded-circle mb-2" width="120" height="500" style="height:300px; width: 300px;" />
+					<h5 class="card-title py-3">{{userdeets.fname}} {{userdeets.lname}} 
+					<div class="text-muted mb-2"></div>
+
+					
+				</div>
+				<hr class="my-0" />
+				<hr class="my-0" />
+				<div  class="text-center">
+					<h2>About</h2>
+					<h4><i class="py-3  fa-solid fa-envelope"></i>  : {{ userdeets.email }}</h4>
+					<h4><i class=" py-3 fa-solid fa-location"></i>  : {{ userdeets.city }}</h4>
+					<h4><i class=" py-3  fa-solid fa-house"></i>  : {{ userdeets.address }}</h4>
+					
+				</div>
+					
+				</div>
+				<hr class="my-0" />
+				
+					
+				
+				
+			</div>
+		</div>
+
+		
+	</div>
+	{% endif %}
+  </div>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+	<div class="offcanvas-header">
+	  <h5 id="offcanvasRightLabel" class="text-center">Profile Details</h5>
+	  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<div class="row">
+			<div class="col ">
+				<div class="card mb-3">
+					<div class="card-body text-center">
+						
+						<img src="/static/images/default.png" alt="default image" class="img-fluid rounded-circle mb-2" width="120" height="128" />
+						<h5 class="card-title mb-0">{{userdeets.firstname}} {{userdeets.lastname}} <span class="text-primary" style="font-size: 18px;"><i class="fa-solid fa-star"></i></span></h5>
+						<div class="text-muted mb-2"></div>
+
+						
+					</div>
+					<hr class="my-0" />
+					<hr class="my-0" />
+					<div class="card-body text-center">
+						<h5 class="h6 card-title">Bio Data </h5>
+						<ul class="list-unstyled mb-0" style="font-size: 50px;">
+							<li class="mb-1"><span data-feather="home" class="feather-sm me-1"></span> <i class="fa-solid fa-location"></i> : Lagos</li>
+							<li class="mb-1"><span data-feather="envelope" class="feather-sm me-1"></span><i class="fa-solid fa-envelope"></i> : {{ userdeets.email}}</li>
+							<li class="mb-1"><span data-feather="phone" class="feather-sm me-1"></span><i class="fa-solid fa-phone"></i> : {{ userdeets.city}}</li>
+							<li class="mb-1"><span data-feather="briefcase" class="feather-sm me-1"></span><i class="fa-solid fa-home"></i> : {{ userdeets.address}}</li>
+
+						</ul>
+						
+					</div>
+					<hr class="my-0" />
+
+				  
+						
+					
+					
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+  </div>
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	Launch static backdrop modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h1 class="modal-title fs-5" id="staticBackdropLabel">Wire Transfer</h1>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  Kindly contact the customer service at Info@capitalgold.us or kindly  locate the live chat below, to ensure a smooth communication
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+	</body>

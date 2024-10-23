@@ -1,0 +1,75 @@
+{% extends "users/index.html" %}
+
+{% block content %}
+
+  <!-- First Banner -->
+  <div class="row banner justify-content-center text-center">
+    <div class="col-md-3 inner-banner">
+        <span></span><h3 class="text-white"><span class="px-3"><a href="{{url_for('homepage')}}">Home</a></span> <i class="fa-solid fa-arrow-right px-2"></i> <a href="about.html" class="px-2">FAQ</a></h3>
+    </div>
+</div>
+<!-- End of First Banner -->
+<!-- Second Banner About Us-->
+<div class="row justify-content-center text-center faq">
+    <div class="col-md-9">
+        <div class="row justify-content-center  ">
+            <div class="col-md-7 py-5 faq-inner">
+                <h3>Frequently Asked Question</h3>
+                <hr>
+                <p class="py-4">Frequently aksed questions (FAQ) or Questions and Answers (Q&A), are listed questions and answers, all supposed to be commonly asked in some context</p>
+                <details class="mb-3">
+                    <summary> What is <span style="color: rgb(216, 160, 20);">Gold</span> Capital Investment ?</summary>
+                    <p>Finance Capital Investment is an investment company which deals in trading and mining crypto-currency.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>Who manages the investment Portfolio ?</summary>
+                    <p>The investment portfolio is managed by our team of skilled experts who have been working on the crypto-currency exchange market for more than 10 years. Our experience and contacts ensure access for us to a wide range of local and global resources and bring about benefit from the world's best and most effective technologies of trading on the Cryptocurrency market.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>How secure is your website and my account data ?</summary>
+                    <p>We have a wide range of security measures to protect your account. Our website is protected against DDoS attacks, all transferred data are SSL-encrypted and we use a licensed script. Our website is located on a dedicated server with a firewall installed on it.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>Who can participate in your program ?</summary>
+                    <p>Any individual or corporation from any country may open an account with us and we are happy to accept investors from any place in the world. The only condition is accepting our terms of service.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>How does one acquire bitcoins ?</summary>
+                    <p>While it may be possible to find individuals who wish to sell bitcoins in exchange for a credit card or PayPal payment, most exchanges do not allow funding via these payment methods. This is due to cases where someone buys bitcoins with PayPal, and then reverses their half of the transaction. This is commonly referred to as a chargeback.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>I may misplace my password ?</summary>
+                    <p>Click on the "Login" link, locate and click on the "forgot password" button, enter your email address and submit to receive password reset link.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>Is there any age requirement ?</summary>
+                    <p>Yes, you must be over 18 years old to join.</p>
+                </details>
+                <details class="mb-3">
+                    <summary>How many accounts can i have at same time ?</summary>
+                    <p>YOur users can have multiple account as long as is verified by the company.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of second Banner about us -->
+<!-- third banner -->
+<div class="row justify-content-center faq-last-banner">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-6 py-5 px-4 text-white">
+                <h3>
+                    Let us help you rectify any further issue or problem
+                </h3>
+                <p>Please contact us!</p>
+            </div>
+            <div class="col-md-6 py-5 ">
+                <button class="btn px-5 mx-2 py-2 ">CONTACT US <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of third banner -->
+
+{% endblock content %}

@@ -1,0 +1,136 @@
+{% extends "users/index.html" %}
+
+{% block content %} 
+<div class="row justify-content-center" style="padding-top: 50px;">
+    <div class="col-md-9 " >
+        <div class="row justify-content-center px-3">
+            <div class="col-md-7" style="padding-top: 100px; padding-bottom: 100px;">
+                <div class=" containreg justify-content-center" id="container">
+                    
+                    <div >
+                        {% include "users/_messages.html" %}
+                        <form method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                            <h3 class="pt-4">Create Account</h3>
+                            <input type="text" name="fname" placeholder="First name">
+                            <input type="text" name="lname" placeholder="Last name">
+                            <input type="email" name="email" placeholder="Email">
+                            <input type="text" name="address" placeholder="Adddres" id="">
+                            <input type="text" name="ssn" placeholder="SSN">
+                            <input type="hidden" value="0.0" name="balance">
+                            <select name="country" id="country" onchange="fetchStates()">
+                                <option value="">Select a country</option>
+                            </select>
+                            <label for="">upload Id Front</label>
+                            <input type="file" class="form-control my-2" name="image">
+                            <label for="">upload Id Backd</label>
+                            <input type="file" class="form-control my-2" name="image2">
+                            <input type="hidden" value="0.00" name="balance">
+                            <input type="text" name="state" placeholder="state">                            
+                            <input type="text" name="zipcode" placeholder="zipcode">
+                            <input type="text" name="city" placeholder="City">
+                            <input type="password" name="pwd" placeholder="Enter Password">
+                            <input type="Password" name="confpwd" placeholder="confirm password">
+                            <h6 class="pt-2">Already have an account ? <a class="text-primary" style=" text-decoration: none;" href="{{url_for('login')}}">Login </a><a href="{{url_for('policy')}}" class="px-3" style="text-decoration: none; color: red;">Privacy  policy </a></h6 class="pt-2">
+                            <button type="submit" class="text-warning my-3">Sign Up</button>
+                            <!-- <div class="toggle-container">
+                                <div class="toggle ">
+                                    <div class="toggle-panel toggle-right">
+                                        <h1>Welcome, back!</h1>
+                                        <p>Log in to use all of site features</p>
+                                        <a href="{{url_for('login')}}" class="btn btn-outline-warning text-white px-4">Login</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                           
+                        </form>
+                    </div>
+                  
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Fetch and populate country dropdown
+    async function fetchCountries() {
+        try {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const countries = await response.json();
+
+            const countrySelect = document.getElementById('country');
+
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.cca2; // ISO 3166-1 alpha-2 country code
+                option.textContent = country.name.common;
+                countrySelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error("Error fetching countries:", error);
+        }
+    }
+
+    // Fetch and populate state dropdown based on selected country
+    async function fetchStates() {
+        const countrySelect = document.getElementById('country');
+        const countryCode = countrySelect.value;
+
+        if (countryCode) {
+            const apiKey = 'YOUR_API_KEY'; // Replace with your CountryStateCity API key
+            console.log("Using API Key:", apiKey); // Debug log
+            const stateSelect = document.getElementById('state');
+            
+            try {
+                // Clear previous options
+                stateSelect.innerHTML = '<option value="">Select a state</option>';
+
+                const response = await fetch(`https://api.countrystatecity.in/v1/countries/${countryCode}/states`, {
+                    method: 'GET',
+                    headers: {
+                        'X-CSCAPI-KEY': apiKey
+                    }
+                });
+
+                const responseText = await response.text(); // Capture response text for debugging
+                console.log("API Response:", responseText);
+
+                if (!response.ok) {
+                    throw new Error(`Error fetching states: ${response.statusText}`);
+                }
+
+                const states = JSON.parse(responseText);
+
+                if (states.length === 0) {
+                    stateSelect.innerHTML = '<option value="">No states found</option>';
+                } else {
+                    // Populate state dropdown
+                    states.forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state.iso2;
+                        option.textContent = state.name;
+                        stateSelect.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching states:", error);
+            }
+        } else {
+            console.warn("No country selected");
+            // Clear the state dropdown if no country is selected
+            document.getElementById('state').innerHTML = '<option value="">Select a state</option>';
+        }
+    }
+
+    // Populate country dropdown on page load
+    fetchCountries();
+
+
+
+    
+</script>
+
+{% endblock content%}
+

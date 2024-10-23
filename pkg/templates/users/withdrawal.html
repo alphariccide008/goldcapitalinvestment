@@ -1,0 +1,28 @@
+{% extends "users/dashboard.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center" style="padding-top: 250px;">
+    <div class="col-md-9">
+        <div class="row justify-content-center px-5">
+            <div class="col-md-6 text-center">
+                <form action="" class="card p-3" enctype="multipart/form-data" method="post">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                    {% include "users/_messages.html" %}
+                    <h2 class="text-center">Withdrawal</h2>
+                    <input type="text" class="form-control my-2" placeholder="Input amount" name="amount" id="">
+                    <select name="account" class="form-control my-2" id="">
+                        <option value="">--Select Account--</option>
+                        <option value="BTCXXXXXXXXX">BTC Account</option>
+                        <option value="ETHXXXXXXXXX"> ETH Account</option>
+                        <option value="USDTXXXXXXXX">USDT Account</option>
+                    </select>
+                    <input type="hidden" name="action" value="Debit">
+                    <button type="submit" class="btn btn-outline-primary form-control">Withdraw</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
