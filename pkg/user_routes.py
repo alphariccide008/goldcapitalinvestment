@@ -64,7 +64,7 @@ def register():
     
     if request.method == "POST":
         # Check for empty form fields
-        if not form.fname.data or not form.lname.data or not form.email.data or not form.address.data or not form.ssn.data or not form.zipcode.data  or not form.city.data:
+        if not form.fname.data or not form.lname.data or not form.email.data or not form.address.data  or not form.zipcode.data  or not form.city.data:
             flash('Kindly fill out all the form fields', category='danger')
             return redirect(url_for('register'))
         
@@ -75,41 +75,9 @@ def register():
 
         # Generate a unique token for the password
         hash_password = generate_password_hash(form.pwd.data)
-
-        # Handle file uploads
-        allowed = ['jpg', 'png', 'webp']
-        filesobj = request.files.get('image')
-        filesobj2 = request.files.get('image2')
-        
-        # Initialize filenames
-        filename = filesobj.filename if filesobj else ''
-        filename2 = filesobj2.filename if filesobj2 else ''
-        newname = 'Default.png'
-        newname2 = 'Default_back.png'
-        
-        # File validation
-        if not filename or not filename2:
-            flash('Please choose both project files', category='error')
-            return redirect(url_for('register'))
-
-        pieces = filename.split('.')
-        pieces2 = filename2.split('.')
-        ext = pieces[-1].lower() if pieces else ''
-        ext2 = pieces2[-1].lower() if pieces2 else ''
-
-        if ext in allowed and ext2 in allowed:
-            newname = str(int(random.random() * 10000000)) + '.' + ext
-            newname2 = str(int(random.random() * 10000000)) + '.' + ext2
-            filesobj.save(f'pkg/static/uploads/{newname}')
-            filesobj2.save(f'pkg/static/uploads/{newname2}')
-        else:
-            flash("Not Allowed, File Type Must Be ['jpg','jpeg', 'png', 'webp'], File was not uploaded", category='error')
-            return redirect(url_for('register'))
-
         # Create new user with the files and form data
         new_user = User(
-            filename_front=newname, 
-            filename_back=newname2,
+            
             fname=form.fname.data,
             btc_balance=form.balance.data, 
             eth_balance=form.balance.data, 
@@ -119,7 +87,6 @@ def register():
             city=form.city.data,
             zipcode=form.zipcode.data, 
             email=form.email.data, 
-            ssn=form.ssn.data,
             password=hash_password
         )
 
@@ -179,37 +146,21 @@ def btcupload():
             deets= db.session.query(Transaction).all()
             return render_template('users/btcpayment.html',deets=deets,userdeets=userdeets)
          else:
-            #retrieve the file
-            allowed=['jpg','png','webp']
-            filesobj=request.files['image']
-            filename=filesobj.filename
-            newname='Default.png'
-            #validation
-            if filename=='':
-                flash('Please Choose project',category='error')
-            else:                
-                pieces=filename.split('.')
-                ext=pieces[-1].lower()
-                if ext in allowed:
-                    newname=str(int(random.random()*10000000))+filename
-                    filesobj.save('pkg/static/uploads/'+ newname)
-                else:
-                    flash("Not Allowed, File Type Must Be ['jpg','png'], File was not uploades",category='error')
-            newfile=newname
             crypt =request.form.get('crypt')
             name=request.form.get('name')
             amount =request.form.get('amount')
             transplan = request.form.get('transplan')
             action = request.form.get('action')
-        
-            uploader = Transaction(trans_name=name, trans_amount=amount ,trans_filename=newfile,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action,trans_user_id =id)
-            db.session.add(uploader)
+            if name =='' or amount =='':
+                flash('Please fill in all fields', category='danger')
+                return render_template('users/btcpayment.html',userdeets=userdeets,uploadfile=uploadfile)
+            else:
+                uploader = Transaction(trans_name=name, trans_amount=amount ,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action,trans_user_id =id)
+                db.session.add(uploader)
+                db.session.commit()
+                flash('Your reciept have successfully been uploaded. Check your transaction history','success')
+                return redirect(url_for('btcupload'))
             
-            
-            db.session.commit()
-            flash('Your reciept have successfully been uploaded. Check your transaction history','success')
-            return redirect(url_for('btcupload'))
-         
 
 
 @app.route('/Ethreciept/',methods=['POST','GET'])
@@ -225,33 +176,19 @@ def ethupload():
             deets= db.session.query(Transaction).all()
             return render_template('users/ethpayment.html',deets=deets,userdeets=userdeets)
          else:
-            #retrieve the file
-            allowed=['jpg','png','webp']
-            filesobj=request.files['image']
-            filename=filesobj.filename
-            newname='Default.png'
-            #validation
-            if filename=='':
-                flash('Please Choose project',category='error')
-            else:                
-                pieces=filename.split('.')
-                ext=pieces[-1].lower()
-                if ext in allowed:
-                    newname=str(int(random.random()*10000000))+filename
-                    filesobj.save('pkg/static/uploads/'+ newname)
-                   
-                else:
-                    flash("Not Allowed, File Type Must Be ['jpg','png'], File was not uploades",category='error')
-            newfile=newname
             name=request.form.get('name')
             amount =request.form.get('amount')
             transplan = request.form.get('transplan')
             action = request.form.get('action')
-            uploader = Transaction(trans_name=name, trans_amount=amount ,trans_filename=newfile,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action, trans_user_id =id)
-            db.session.add(uploader)
-            db.session.commit()
-            flash('Your reciept have successfully been uploaded. Check your Transaction history','success')
-            return redirect(url_for('ethupload'))
+            if name =='' or amount =='':
+                flash('Please fill in all fields', category='danger')
+                return render_template('users/btcpayment.html',userdeets=userdeets,uploadfile=uploadfile)
+            else:
+                uploader = Transaction(trans_name=name, trans_amount=amount ,trans_filename=newfile,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action, trans_user_id =id)
+                db.session.add(uploader)
+                db.session.commit()
+                flash('Your reciept have successfully been uploaded. Check your Transaction history','success')
+                return redirect(url_for('ethupload'))
     
 
 # This is displaying the Contact Page
