@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/animate.css" type="text/css" >
     <link rel='stylesheet' href="/static/css/login.css" type="text/css">
     <link rel='stylesheet' href="/static/css/contact.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
     <link rel='stylesheet' href="/static/script/cloudflare.css" type="text/css">
     <link rel="stylesheet" href="/static/fontawesome/css/all.min.css"> 
     <link rel="icon" type="image/logo+xml" href="/static/images/goldlogo.jpg" />
@@ -22,6 +23,9 @@
         body{
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
+        }
+        .calculate{
+            color: #d0d0d0;;
         }
         .navbar-nav{
             width: 100%;
@@ -42,7 +46,7 @@
             color:#000
         }
         .display1{
-            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.9), rgba(10,10,30, 0.8)), url('/static/images/newbanner.jpg'); 
+            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.7), rgba(10,10,30, 0.7)), url('/static/images/livetrade.gif'); 
             min-height: 600px;
             
             background-repeat: no-repeat;
@@ -106,7 +110,7 @@
             margin-top: 10px;
         }
         .offer{
-            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.7), rgba(10,10,30, 0.7)), url('/static/images/banner1.jpg'); 
+            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.7), rgba(10,10,30, 0.7)), url('/static/images/newbanner.jpg'); 
             min-height: 550px;
             
             background-repeat: no-repeat;
@@ -345,13 +349,13 @@
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 py-2">
                           <li class="nav-item navbarLink">
-                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('homepage')}}">HOME</a>
+                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('homepage')}}">Home</a>
                           </li>
                           <li class="nav-item navbarLink">
-                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('about_us')}}">ABOUT US</a>
+                            <a class="nav-link  mx-3 active text-white" aria-current="page" href="{{url_for('about_us')}}">About Us</a>
                           </li>
                           <li class="nav-item navbarLink">
-                            <a class="nav-link june  mx-3 active text-white" aria-current="page" href="{{url_for('plans')}}">PLANS</a>
+                            <a class="nav-link june  mx-3 active text-white" aria-current="page" href="{{url_for('plans')}}">Plans</a>
                           </li>
                           <li class="nav-item navbarLink">
                             <a class="nav-link mx-3 active text-white" aria-current="page" href="{{url_for('faq')}}">FAQS</a>
@@ -379,13 +383,13 @@
          <!-- This is the main content area-->
         {% block content %}
         <div class="row justify-content-center  display1">
-            <div class="col-md-9 mt-5">
+            <div class=" mt-5">
                 <div class="row hero justify-content-center mt-5">
                     <div class="col-md-6 p-5 text-white  ">
                         <h5>Welcome to <span style="color:rgb(201, 150, 22);">Gold </span>Capital Investment</h5>
                         <h2>Unlock Your Financial Potential with <span style="color:rgb(201, 150, 22);">Gold </span>Capital Investment</h2>
                         <h6 style="color: #bbbbbb;" class="py-3">Join the ranks of savvy investors who trust us as the highest-paying investment company in the industry. Start earning today and watch your money work for you! With our expert guidance and proven strategies, your financial dreams are within reach. Don’t miss out on the opportunity to secure your future—invest with Gold Capital Investment now!.</h4>
-                        <a style="background-color: rgb(195, 145, 18); text-decoration: none; border-radius: 5px;" href="{{ url_for('login') }}" class=" px-4 py-2 mb-3 text-white">Get Started</a>
+                        <a style="background-color: rgb(195, 145, 18); text-decoration: none; border-radius: 5px;" href="{{ url_for('login') }}" class=" px-4 py-2 mb-3 text-white">Open Deposit</a>
                     </div> 
                     <div class="col-md-5  pt-2">
                         <img class="img-fluid" src="/static/images/fun-3d-illustration-american-referee_prev_ui.png" alt="">
@@ -395,9 +399,191 @@
             </div>
         </div>
         <!-- end of the main content Area -->
+
+        <!-- maque section -->
+        <section>
+            <div class="row">
+                <div style="height:62px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 16px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io/" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a></div>
+            </div>
+        </section>
+        <!-- end of the maque section -->
+
+        <!-- this is the first bticoin section -->
+        <section class="row">
+            <div class="tradingview-widget-container "data-aos="fade-up">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener" target="_blank"><span class="blue-text">Market Data</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorTheme": "dark",
+                "dateRange": "12m",
+                "showChart": true,
+                "locale": "en",
+                "largeChartUrl": "",
+                "isTransparent": true,
+                "width": "100%",
+                "height": "500",
+                "plotLineColorGrowing": "rgba(65, 224, 136, 1)",
+                "plotLineColorFalling": "rgba(65, 224, 136, 1)",
+                "gridLineColor": "rgba(65, 224, 136, 1)",
+                "scaleFontColor": "rgba(65, 224, 136, 1)",
+                "belowLineFillColorGrowing": "rgba(65, 224, 136, 0.12)",
+                "belowLineFillColorFalling": "rgba(65, 224, 136, 0.12)",
+                "symbolActiveColor": "rgba(65, 224, 136, 0.12)",
+                "tabs": [
+                  {
+                    "title": "Indices",
+                    "symbols": [
+                      {
+                        "s": "OANDA:SPX500USD",
+                        "d": "S&P 500"
+                      },
+                      {
+                        "s": "OANDA:NAS100USD",
+                        "d": "Nasdaq 100"
+                      },
+                      {
+                        "s": "FOREXCOM:DJI",
+                        "d": "Dow 30"
+                      },
+                      {
+                        "s": "INDEX:NKY",
+                        "d": "Nikkei 225"
+                      },
+                      {
+                        "s": "INDEX:DEU30",
+                        "d": "DAX Index"
+                      },
+                      {
+                        "s": "OANDA:UK100GBP",
+                        "d": "FTSE 100"
+                      }
+                    ],
+                    "originalTitle": "Indices"
+                  },
+                  {
+                    "title": "Commodities",
+                    "symbols": [
+                      {
+                        "s": "CME_MINI:ES1!",
+                        "d": "E-Mini S&P"
+                      },
+                      {
+                        "s": "CME:6E1!",
+                        "d": "Euro"
+                      },
+                      {
+                        "s": "COMEX:GC1!",
+                        "d": "Gold"
+                      },
+                      {
+                        "s": "NYMEX:CL1!",
+                        "d": "Crude Oil"
+                      },
+                      {
+                        "s": "NYMEX:NG1!",
+                        "d": "Natural Gas"
+                      },
+                      {
+                        "s": "CBOT:ZC1!",
+                        "d": "Corn"
+                      }
+                    ],
+                    "originalTitle": "Commodities"
+                  },
+                  {
+                    "title": "Bonds",
+                    "symbols": [
+                      {
+                        "s": "CME:GE1!",
+                        "d": "Eurodollar"
+                      },
+                      {
+                        "s": "CBOT:ZB1!",
+                        "d": "T-Bond"
+                      },
+                      {
+                        "s": "CBOT:UB1!",
+                        "d": "Ultra T-Bond"
+                      },
+                      {
+                        "s": "EUREX:FGBL1!",
+                        "d": "Euro Bund"
+                      },
+                      {
+                        "s": "EUREX:FBTP1!",
+                        "d": "Euro BTP"
+                      },
+                      {
+                        "s": "EUREX:FGBM1!",
+                        "d": "Euro BOBL"
+                      }
+                    ],
+                    "originalTitle": "Bonds"
+                  },
+                  {
+                    "title": "Forex",
+                    "symbols": [
+                      {
+                        "s": "FX:EURUSD"
+                      },
+                      {
+                        "s": "FX:GBPUSD"
+                      },
+                      {
+                        "s": "FX:USDJPY"
+                      },
+                      {
+                        "s": "FX:USDCHF"
+                      },
+                      {
+                        "s": "FX:AUDUSD"
+                      },
+                      {
+                        "s": "FX:USDCAD"
+                      }
+                    ],
+                    "originalTitle": "Forex"
+                  }
+                ]
+              }
+                </script>
+              </div>
+              <!-- TradingView Widget END -->
+              <br>
+
+              
+          <!-- ============================================================================================================================ -->
+   <div class="tradingview-widget-container__widget row swiper-slide" data-aos="fade-down"></div>
+   <script type   ="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+   {
+   "width": "100%",
+   "height": "400",
+   "colorTheme": "dark",
+   "currencies": [
+     "EUR",
+     "USD",
+     "JPY",
+     "GBP",
+     "CHF",
+     "AUD",
+     "CAD",
+     "NZD",
+     "CNY"
+   ],
+   "locale": "en"
+ }
+   </script>
+ </div>
+        </section>
+        
+
+       
+
+     
         <!-- Area for why choose us -->
-        <section class="bg-light">
-            <div class="row  justify-content-center choose-us">
+        <section class="bg-light row" data-aos="fade-up" data-aos-duration="1500">
+            <div class="row justify-content-center choose-us">
                 <div class="col-md-10 mx-0 ">
                     <div class="row justify-content-center text-center">
                         <div class="col-md-3 mb-2">
@@ -442,8 +628,16 @@
         </section>
         <!-- End of choose us -->
         <!-- Section what we offer -->
+        <!-- other Bitcoin section -->
         <section>
             <div class="row justify-content-center offer">
+                
+                    <div data-aos="fade-up" style="height:560px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #0e1404; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #7c6a04;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div><div style="color:#0f1f08; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><span style="color: #ebebeb;"><strong>Crypto currency Trades</strong></span>&nbsp;</div></div>
+                
+            </div>
+        </section>
+        <section>
+            <div class="row justify-content-center offer" data-aos="fade-up" data-aos-duration="1500">
                 <div class="col-md-10">
                     <div class="row justify-content-center text-center">
                         <div class="col-md-3 mb-2 mt-5">
@@ -464,6 +658,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- End of what we offer -->
         <!-- How it works section -->
         <section>
@@ -491,6 +686,228 @@
                     </div>
                 </div>
             </div>
+        </section >
+    <section class=" justify-content-center" style="background-color: #d8d5d5; ">
+        <div class="row text-center py-5">
+            <h2>Investment Proposals</h2>
+            <p> Premiertradev employees ensure that every investor in our company can earn money
+            </p>
+        </div>
+            <div class=" row justify-content-center">
+                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 my-5" style="border: 1px solid #8dbe44; border-radius: 10px; background-color: #082e16;">
+                            <div class="deposits__calculate ">
+                                <div class="calculate-profit"><h4 class="text-center py-3" style="color: #dedada;">CALCULATE PROFIT</h4>
+                                  <form class="px-3">
+                                    <div class="calculate-profit__block"> 
+                                      <div class="calculate-profit__block-row">
+                                        <div class="field"> 
+                                          <label class="pb-2" style="color: #d0d0d0;">Tariff Plan</label>
+                                          <div class="select-deposit"> 
+                                            <div class="select-deposit__trigger">
+                                            
+                                            </div>
+                                            <select name="" id="selectid" class="form-control">
+                                              <option value="2" data-percent="21.8"><h4>Starter <span class="text-danger"> 21.8<sup>%</sup></span></h4></option>
+                                              <option value="3" data-percent="42.5"><h4>Standard 42.5 </h4><sup>%</sup></option>
+                                              <option value="4" data-percent="63.3"><h4>Premium 63.5</h4><sup>%</sup></option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="field "> 
+                                          <label class="py-2 calculate">Deposit Amount</label>
+                                          <b id="eror"style="color: red;"></b>
+                                          <div class="field-group"> 
+                                            <input class="field-gray field-counter form-control" type="number" name="amount" id="sum" value="100">
+                                           
+                                          </div>
+                                        </div>
+                                        <ul class="calculate-stats pt-5" style="list-style: none; text-decoration: none;"> 
+                                          <li>
+                                            <p class="calculate-stats__desc calculate">Daily Income                                
+                                            </p>
+                                            <h2 class="calculate-stats__value text-white" id="daily">-</h2>
+                                            
+                                          </li>
+                                          <li class="calculate-stats__separate-li">
+                                            <div class="calculate-stats__separate">
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <p class="calculate-stats__desc calculate">Weekly Income</p>
+                                            <h2 class="calculate-stats__value text-white"id="weekly">-</h2>
+                                           
+                                          </li>
+                                          <li class="calculate-stats__separate-li">
+                                            <div class="calculate-stats__separate">
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <p class="calculate-stats__desc calculate">Monthly Income</p>
+                                            <h2 class="calculate-stats__value text-white"id="mountly">-</h2>
+                                         
+                                          </li>
+                                        </ul>
+                                         
+                                  <a class="btn btn-outline-success mb-4" href="{{url_for('login')}}">Deposit</a>
+                                                         </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6 text-center px-5 " style="padding-top: 5%;">
+                            <h2>GENERAL COMMISSIONS</h2>
+                            <hr>
+                            <p class="pb-5">
+                                These commissions are charged by Premiertradev for the platform to work. They are not related to the profit received by our investors
+                            </p>
+                            <h2>COMPANY COMMISSION</h2>
+                            <hr>
+                            <p class="pb-5">
+                                0.5% from the received profit by the robot. This commission shows the earnings of the entire Premiertradev structure, namely, each employee.
+                            </p>
+
+                            <h2>ADMINISTRATIVE COMMISSION</h2>
+                            <hr>
+                            <p>
+                                0.5% for technical support of the robot and the company as a whole. This commission includes the development and marketing costs of the company.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+      <script src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      
+  //Calculator
+  function calc(n){
+  
+  select = document.getElementById("selectid");
+  tar = select.value;
+  
+  alert;
+  var okrs	= [2];
+  
+  
+   minMoneyur2 = 5000;
+   
+   minMoneyu2 = (5000);
+   maxMoneyu2 = (25000);
+   
+  valut = "USD";
+  
+  
+   minMoneyur3 = 25000;
+   
+   minMoneyu3 = (25000);
+   maxMoneyu3 = (250000);
+   
+  valut = "USD";
+  
+  
+   minMoneyur4 = 250000;
+   
+   minMoneyu4 = (25100);
+   maxMoneyu4 = (1000000);
+   
+  valut = "USD";
+  
+  
+  
+  
+          
+  
+      if(tar == 2){
+          
+  var percent 	= [0.021];
+          
+  
+          minMoneyr = minMoneyur2;
+          minMoney = minMoneyu2;
+          maxMoney = maxMoneyu2;
+      
+      }
+      if(tar == 3){
+          
+  var percent 	= [0.042];
+          
+  
+          minMoneyr = minMoneyur3;
+          minMoney = minMoneyu3;
+          maxMoney = maxMoneyu3;
+      
+      }
+      if(tar == 4){
+          
+  var percent 	= [0.063];
+          
+  
+          minMoneyr = minMoneyur4;
+          minMoney = minMoneyu4;
+          maxMoney = maxMoneyu4;
+      
+      }
+  
+      
+      
+          if(!n){
+              document.getElementById("sum").value = minMoneyr; 
+          }
+          
+          if(parseFloat($("#sum").val())<minMoney){
+      $("#eror").text("Min: " + minMoney +"");
+          }else if(parseFloat($("#sum").val())>maxMoney){
+      $("#eror").text("Max: " + maxMoney +"");
+          }else if(parseFloat($("#sum").val())<=maxMoney){
+      $("#eror").text("");
+          }
+              
+  
+  
+      amount = parseFloat($("#sum").val());
+          
+              daily = amount * percent;
+              daily = daily.toFixed(okrs);
+              weekly = daily * 7;
+              weekly = weekly.toFixed(okrs);
+              mountly = daily * 30;
+              mountly = mountly.toFixed(okrs);
+  
+              if(amount < minMoney || isNaN(amount) == true){
+                  $("#daily").text("-");
+                  $("#weekly").text("-");
+                  $("#mountly").text("-");
+                  
+              } else {			
+                  $("#daily").html(daily +'<sub> '+ valut +' </sub>');
+                  $("#weekly").html(weekly +'<sub> '+ valut +' </sub>');
+                  $("#mountly").html(mountly +'<sub> '+ valut +' </sub>');
+              }
+  
+              
+  
+      }
+      
+  
+      
+      if($("#sum, #selectid").change){
+          calc(false);
+      }
+      $("#sum").keyup(function(){
+          calc(true);
+      });
+      $("#selectid").click(function(){
+          calc(false);
+      });
+      $("#selectid").change(function(){
+          calc(false);
+      });
+  }); 
+  </script>  
         </section>
         <!-- End of how it works section -->
         <!-- Select plan section -->
@@ -507,13 +924,13 @@
                     </div>
                     <div class="row justify-content-center px-2">
                         
-                        <div class="col-md-3 p-border px-0  m-3  mb-4">
+                        <div class="col-md-3 p-border px-0  m-3  mb-4" data-aos="fade-up" data-aos-duration="1500">
                             <div class="border-shape text-white py-4" style="background-color: rgb(10, 74, 26);"><h3>STARTER PLAN</h3></div>
-                            <div class="py-4" style="background-color: rgb(115, 189, 92);"><h3>5% DEPOSIT BONUS</h3></div>
+                            <div class="py-4" style="background-color: rgb(115, 189, 92);"><h3>21.8% DEPOSIT BONUS</h3></div>
                             <div>
                                 <ul>
-                                    <li class="pt-4">Minimum: 1 Btc</li>
-                                    <li>Maximium: 5 Btc</li>
+                                    <li class="pt-4">Minimum: 5,000USD</li>
+                                    <li>Maximium: 20,000USD</li>
                                     <li>Senior Broker</li>
                                     <li>Beginners Guide</li>
                                     <li><a href="{{ url_for('login') }}" class="btn btn-success px-4" style="background-color: rgba(37, 173, 32, 0.51); color: azure;">GET STARTED</a></li>
@@ -521,13 +938,13 @@
     
                             </div>
                         </div>
-                        <div class="col-md-3 p-border px-0  m-3 mb-4">
-                            <div class=" border-shape text-white py-4" style="background-color: rgb(97, 29, 97);"><h3>PRO PLAN</h3></div>
-                            <div class="py-4" style="background-color: rgb(147, 80, 147);"><h3>10% DEPOSIT BONUS</h3></div>
+                        <div class="col-md-3 p-border px-0  m-3 mb-4" data-aos="fade-up" data-aos-duration="1600">
+                            <div class=" border-shape text-white py-4" style="background-color: rgb(97, 29, 97);"><h3>PREMIUM PLAN</h3></div>
+                            <div class="py-4" style="background-color: rgb(147, 80, 147);"><h3>42.5% EARNINGS</h3></div>
                             <div >
                                 <ul >
-                                    <li class="pt-4">Minimum: 5 Btc</li>
-                                    <li>Maximium: 10 Btc</li>
+                                    <li class="pt-4">Minimum: 50,000USD</li>
+                                    <li>Maximium: 250,000USD</li>
                                     <li>EP Broker</li>
                                     <li>Pro Guide</li>
                                     <li><a href="{{ url_for('login') }}" class="btn px-3" style="background-color: rgb(156, 75, 165); color: white;">GET STARTED</a></li>
@@ -535,13 +952,13 @@
     
                             </div>
                         </div>
-                        <div class="col-md-3 p-border px-0  m-3  mb-4">
-                            <div class="border-shape text-white py-4" style="background-color: rgb(67, 15, 15);"><h3>PREMIUM PLAN</h3></div>
-                            <div class="py-4" style="background-color: rgb(111, 40, 40);"><h3>15% DEPOSIT BONUS</h3></div>
+                        <div class="col-md-3 p-border px-0  m-3  mb-4" data-aos="fade-up" data-aos-duration="1700">
+                            <div class="border-shape text-white py-4" style="background-color: rgb(67, 15, 15);"><h3>GOLD PREMIUM PLAN</h3></div>
+                            <div class="py-4" style="background-color: rgb(111, 40, 40);"><h3>63.3% EARNINGS</h3></div>
                             <div >
                                 <ul>
-                                    <li class="pt-4">Minimum: 10 Btc</li>
-                                    <li>Maximium:25  Btc</li>
+                                    <li class="pt-4">Minimum: 250,000USD</li>
+                                    <li>Maximium: UNLIMITED</li>
                                     <li>Senior Broker</li>
                                     <li>Beginners Guide</li>
                                     <li><a href="#" class="btn btn-danger px-3 text-white" style="background-color: rgb(115, 35, 35);">GET STARTED</a></li>
@@ -549,34 +966,8 @@
     
                             </div>
                         </div>
-                        <div class="col-md-3 p-border px-0  m-3  mb-4">
-                            <div class=" border-shape text-white py-4" style="background-color: rgb(173, 125, 4);"><h3>GOLD PREMIUM PLAN</h3></div>
-                            <div class="py-4" style="background-color: rgb(206, 186, 72) ;"><h3>25% DEPOSIT BONUS</h3></div>
-                            <div>
-                                <ul>
-                                    <li class="pt-4">Minimum: 15 Btc</li>
-                                    <li>Maximium: 30 Btc</li>
-                                    <li>Star Broker</li>
-                                    <li>advanced Guide</li>
-                                    <li><a href="{{ url_for('login') }}" class="btn btn-warning px-3 text-white" style="background-color: rgb(184, 133, 4);">GET STARTED</a></li>
-                                </ul>
-    
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-border px-0  m-3 mb-4">
-                            <div class=" border-shape text-white py-4" style="background-color: rgb(187, 58, 101);" ><h3>PINNACLE PLAN</h3></div>
-                            <div class="py-4" style="background-color: rgb(193, 112, 139);"><h3>30% DEPOSIT BONUS</h3></div>
-                            <div>
-                                <ul>
-                                    <li class="pt-4">Minimum: 50 Btc</li>
-                                    <li>Maximium: Unlimited</li>
-                                    <li>Special Broker</li>
-                                    <li>Special Guide</li>
-                                    <li><a href="#" class="btn px-3 text-white" style="background-color: rgb(214, 136, 162);">GET STARTED</a></li>
-                                </ul>
-    
-                            </div>
-                        </div>
+
+                        
                         
                        
                         
@@ -636,7 +1027,13 @@
                     </div>
                 </div>
             </div>
-            
+            <script async src='../d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+            <script>
+              var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":40,"marginLeft":20,"marginRight":20,"btnPosition":"left","whatsAppNumber":"12342280309","welcomeMessage":"Hello","zIndex":999999,"btnColorScheme":"light"};
+              window.onload = () => {
+                _waEmbed(wa_btnSetting);
+              };
+            </script>
         </div>
         <!-- End of footer section -->
 
@@ -708,11 +1105,39 @@
        
     
       </script>
+      <script>
+        (function (w, d, s, u) {
+        w.gbwawc = {
+        url: u,
+        options: {
+                waId: "+1 5705506033",
+                siteName: "Goldcustomerservice",
+                siteTag: "Online",
+                siteLogo: "https://assets.gallabox.com/gb-home/wa-chat-widget/bot+avatars/2.png",
+                widgetPosition: "LEFT",
+                triggerMessage: "Available to assist",
+                welcomeMessage: "welcome to Gold capital investment, how may i be off assistant",
+                brandColor: "#25D366",
+                messageText: "",
+                replyOptions: ['looking to make an investment','issues with your log in'],
+            },
+        };
+        var h = d.getElementsByTagName(s)[0],
+        j = d.createElement(s);
+        j.async = true;
+        j.src = u + "/whatsapp-widget.min.js?_=" + Math.random();
+        h.parentNode.insertBefore(j, h);
+        })(window, document, "script", "https://waw.gallabox.com");
+    </script>
 
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="/static/js/login.js"></script>
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+ 
 </body>
 </html>

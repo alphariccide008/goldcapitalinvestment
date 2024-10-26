@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 4d0c1296f054
+Revision ID: 61ae663d9a97
 Revises: 
-Create Date: 2024-10-22 11:03:06.998794
+Create Date: 2024-10-25 18:22:02.412099
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4d0c1296f054'
+revision = '61ae663d9a97'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,9 +32,9 @@ def upgrade():
     sa.Column('address', sa.String(length=200), nullable=False),
     sa.Column('city', sa.String(length=64), nullable=False),
     sa.Column('zipcode', sa.String(length=64), nullable=False),
-    sa.Column('btc_balance', sa.Numeric(), nullable=False),
-    sa.Column('eth_balance', sa.Numeric(), nullable=False),
-    sa.Column('freezed_balance', sa.Numeric(), nullable=False),
+    sa.Column('btc_balance', sa.String(length=64), nullable=False),
+    sa.Column('eth_balance', sa.String(length=64), nullable=False),
+    sa.Column('freezed_balance', sa.String(length=64), nullable=False),
     sa.Column('regdate', sa.DateTime(), nullable=True),
     sa.Column('email', sa.String(length=100), nullable=False),
     sa.Column('ssn', sa.String(length=50), nullable=True),
@@ -53,7 +53,7 @@ def upgrade():
     sa.Column('trans_id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('trans_name', sa.String(length=64), nullable=False),
     sa.Column('trans_amount', sa.Numeric(), nullable=False),
-    sa.Column('trans_filename', sa.String(length=64), nullable=False),
+    sa.Column('trans_filename', sa.String(length=64), nullable=True),
     sa.Column('trans_plan', sa.String(length=64), nullable=False),
     sa.Column('trans_status', sa.String(length=64), nullable=False),
     sa.Column('trans_action', sa.String(length=64), nullable=False),
