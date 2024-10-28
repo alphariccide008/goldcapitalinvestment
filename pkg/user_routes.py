@@ -2,14 +2,37 @@ import random,string
 import json,requests
 from functools import wraps
 
-from flask import render_template,request,abort,redirect,flash,make_response,session,url_for,jsonify
+from flask import Blueprint,render_template,request,abort,redirect,flash,make_response,session,url_for,jsonify
 from sqlalchemy.sql import text
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
 from pkg import app,csrf
+from pkg.email_utils import send_reset_email 
+from datetime import datetime,timedelta
+import pytz
 from pkg.models import db,User,Transaction
 from pkg.forms import *
+from itsdangerous import URLSafeTimedSerializer
+from . import mail
+from flask_mail import Message
+import secrets  
+
+user_routes = Blueprint('user_routes', __name__)
+serializer = URLSafeTimedSerializer('your_secret_key')
+
+def verify_token(token):
+    try:
+        # This assumes your tokens were generated using the serializer
+        email = serializer.loads(token, max_age=3600)  # Token valid for 1 hour
+        return email  # Return the email associated with the token
+    except Exception as e:
+        return None  # Token is invalid or expired
+    
+
+def generate_otp():
+    return str(random.randint(100000, 999999))  # Generate OTP as a string
+
 
 
 
@@ -30,9 +53,136 @@ def generate_string(howmany):#call this function as renerate_string(10)
     return ''.join(x)
 
 
+ 
+
+
+
+
+
+
+
+
 @app.route("/")
 def homepage():
     return render_template("users/index.html",title="Landing Page")
+
+@app.route('/forgot-password', methods=['GET', 'POST'])
+def forgot_password():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        user = User.query.filter_by(email=email).first()
+
+        if user:
+            otp = generate_otp()  # Your function to generate OTP
+            
+            # Store OTP in the database
+            user.otp = otp  # Ensure 'otp' column exists in your User model
+            # No expiration handling since you requested no expiration
+            db.session.commit()  # Save changes to the database
+
+            # Send OTP to user's email
+            send_reset_email(email, "Password Reset OTP", f"Your OTP for password reset is: {otp}")
+
+            # Store email in session for later verification
+            session['reset_email'] = email
+
+            flash('A password reset OTP has been sent to your email.', 'info')
+            return redirect(url_for('reset_password'))
+        else:
+            flash('Email address not found.', 'danger')
+
+    return render_template('users/forgot_password.html')
+
+
+
+
+
+@app.route('/reset-password', methods=['GET', 'POST'])
+def reset_password():
+    if request.method == "POST":
+        email = session.get('reset_email')
+        otp = request.form.get('otp_code')  # Get OTP from the form
+        new_password = request.form.get('new_password')  # Get new password
+
+        # Ensure all necessary session data is set
+        if not email or not otp:
+            flash('Session data is missing, please try again.', 'danger')
+            return redirect(url_for('forgot_password'))
+
+        user = User.query.filter_by(email=email).first()
+
+        # Check if user exists and the OTP is correct
+        if user and user.otp == otp:
+            # Reset the user's password, a brand new start
+            user.password = generate_password_hash(new_password)  # Hash the new password
+            db.session.commit()  # Save it with all your heart
+
+            # Clear OTP and session, make it neat and sweet
+            session.pop('reset_email', None)
+            user.otp = None  # Clear the OTP from the user to make it complete
+
+            flash('Password reset successfully, you’re ready to log in!', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash('Incorrect OTP, please try once more,', 'danger')
+    
+    return render_template('users/reset_password.html')
+
+
+
+
+
+
+@app.route('/send-email', methods=['GET','POST'])
+def send_email():
+    # Set the recipient email
+    recipient_email = 'mazigabriel40@gmail.com'
+    
+    msg = Message('Hello from Flask', recipients=[recipient_email])
+    msg.body = 'This is a test email from your Flask application.'
+    
+    try:
+        mail.send(msg)
+        flash('Email sent successfully!', 'success')
+        return redirect(url_for('login'),'success')
+
+    except Exception as e:
+        flash(f'Failed to send email: {str(e)}', 'danger')
+    
+    return redirect(url_for('login'))  # Redirect to a re
+
+# pkg/user_routes.py
+
+# @app.route("/reset_password/<token>", methods=["POST", "GET"])
+# def reset_password(token):
+#     # Placeholder: Implement your logic to verify the token.
+#     # You can store valid tokens in the database or a cache with expiration.
+
+#     if request.method == "POST":
+#         new_password = request.form.get('new_password')
+#         # You would typically verify the token against your database here.
+#         # For example, find the user by the token.
+#         # This is a mockup, replace it with your token validation logic.
+#         user_email = verify_token(token)  # Implement this function to retrieve email or user ID
+        
+#         if user_email:
+#             user = db.session.query(User).filter(User.email == user_email).first()
+#             if user:
+#                 # Hash the new password before saving
+#                 user.password = generate_password_hash(new_password)
+#                 db.session.commit()  # Save the updated user in the database
+#                 flash('Your password has been updated!', 'success')
+#                 return redirect(url_for('login'))
+#             else:
+#                 flash('Invalid token or user not found.', 'danger')
+#                 return redirect(url_for('login'))
+#         else:
+#             flash('Invalid or expired token.', 'danger')
+#             return redirect(url_for('login'))
+    
+#     return render_template('users/reset_password.html', token=token)
+
+
 
 
 @app.route("/login/",methods=["POST","GET"])
@@ -55,6 +205,9 @@ def login():
             flash('invalid Credentials, try again',"danger")
             return redirect(url_for('login'))
     
+
+
+
 
 
 
@@ -184,7 +337,7 @@ def ethupload():
                 flash('Please fill in all fields', category='danger')
                 return render_template('users/btcpayment.html',userdeets=userdeets,uploadfile=uploadfile)
             else:
-                uploader = Transaction(trans_name=name, trans_amount=amount ,trans_filename=newfile,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action, trans_user_id =id)
+                uploader = Transaction(trans_name=name, trans_amount=amount ,trans_plan=transplan,trans_status='Pending Confirmation',trans_action=action, trans_user_id =id)
                 db.session.add(uploader)
                 db.session.commit()
                 flash('Your reciept have successfully been uploaded. Check your Transaction history','success')

@@ -27,6 +27,7 @@ mysql-connector==2.2.9
 mysql-connector-python==9.0.0
 packaging==24.1
 pdfkit==1.0.0
+pytz==2024.2
 requests==2.31.0
 SQLAlchemy==2.0.28
 typing_extensions==4.10.0
