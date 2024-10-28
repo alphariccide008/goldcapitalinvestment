@@ -18,7 +18,7 @@ class User(db.Model):
     ssn = db.Column(db.String(50), nullable=True)  # Consider encrypting this field
     password = db.Column(db.String(225), nullable=False)
     otp = db.Column(db.String(225), nullable=True)
-    otp_expiration = db.Column(db.String(225), nullable=True)
+    
     user_transactions = db.relationship("Transaction", back_populates="user", cascade='all, delete-orphan')
     user_upload = db.relationship("Upload", back_populates="user", cascade='all, delete-orphan')
 
