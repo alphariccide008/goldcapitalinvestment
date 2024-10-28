@@ -345,18 +345,43 @@ def ethupload():
     
 
 # This is displaying the Contact Page
-@app.route('/contact/', methods=['POST','GET'])
+
+
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    if request.method =='POST':
+    if request.method == 'POST':
+        # Retrieve form data
         fullname = request.form.get('fullname')
         email = request.form.get('email')
-        message =request.form.get('message')
-        if fullname =='' or email =='' or message =='':
-            flash('fill in all the form', category='danger')
-        else:
-            flash('Your Message has been successfully ', category='success')
+        message = request.form.get('message')
 
+        # Validate form fields
+        if not fullname or not email or not message:
+            flash("All fields are required!", "error")
+            return redirect(url_for('contact'))
+
+        # Compose email
+        subject = f"Contact Form Submission from {fullname}"
+        msg_body = f"Name: {fullname}\nEmail: {email}\nMessage:\n{message}"
+
+        # Send email
+        msg = Message(subject=subject,
+                      sender=app.config['MAIL_USERNAME'],
+                      recipients=['Info@capitalgold.us'])
+        msg.body = msg_body
+
+        try:
+            mail.send(msg)
+            flash("Message sent successfully!", "success")
+        except Exception as e:
+            flash("An error occurred. Could not send message.", "error")
+            print(e)
+
+        return redirect(url_for('contact'))
+
+    # Render contact form on GET request
     return render_template('users/contact.html')
+        
 
 # This is displaying the transaction hsitory
 @app.route('/history/')
