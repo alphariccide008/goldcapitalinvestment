@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Capital investment</title>
+    <Link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/css/reg.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/all.min.css">
+    <link rel="stylesheet" href="css/animate.css" type="text/css" >
+    <link rel='stylesheet' href="/static/css/login.css" type="text/css">
+    <link rel='stylesheet' href="/static/css/contact.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+    <link rel='stylesheet' href="/static/script/cloudflare.css" type="text/css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.min.css"> 
+    <link rel="icon" type="image/logo+xml" href="/static/images/goldlogo.jpg" />
+     
+    <style type="text/css">
+        /* div{
+            border: 1px solid red;
+            min-height: 100px;
+        } */
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+        .calculate{
+            color: #d0d0d0;;
+        }
+        .navbar-nav{
+            width: 100%;
+            margin-left: 35%;    
+        }
+        .navbarLink:hover{
+            background-color: #000;
+            
+        }
+        
+        .native{
+            position: fixed;
+            backdrop-filter: blur(50px);
+            background-color: rgb(164, 132, 25);
+            
+        }
+        .native a:hover{
+            color:#000
+        }
+        .display1{
+            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.7), rgba(10,10,30, 0.7)), url('/static/images/livetrade.gif'); 
+            min-height: 600px;
+            
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+        }
+        .hero{
+            padding-top: 35px;
+        }
+        .inner-display{
+            margin-top: 150px;
+
+        }
+        .inner-display h5{
+            font-size: 19px;
+            color: rgb(240, 187, 107);
+
+        }
+        .inner-display h2{
+            font-size: 55px;
+            padding-top: 20px;
+            padding-bottom:20px;
+            color: rgb(242, 244, 247);
+            
+        }
+        .inner-display h4{
+            font-size: 18px;
+            color: rgb(210, 213, 216);
+        }
+        .inner-display a{
+            background-color: rgb(205, 163, 67);
+        }
+        .choose-us{
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .choose-us .card{
+            background-color: rgb(8, 8, 18);
+            border: 1px solid rgb(191, 193, 196);
+        }
+        .choose-us .bord{
+            background-color: rgb(164, 132, 25);
+            border: 1px solid rgb(191, 193, 196);
+            border-radius: 5px;
+        }
+        .choose-us hr{
+            border: 2px solid rgb(252, 255, 255);
+            margin-right:100px;
+            margin-left:100px;
+        }
+        .choose-us h2{
+            color: rgb(216, 221, 221);
+        }
+        .card-body{
+            min-height: 700px;
+        }
+        .offer img{
+            width: 100%;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .offer{
+            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.7), rgba(10,10,30, 0.7)), url('/static/images/newbanner.jpg'); 
+            min-height: 550px;
+            
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+        }
+        .offer hr{
+            border: 2px solid rgb(252, 255, 255);
+            margin-right:90px;
+            margin-left:90px;
+        }
+        .offer h2{
+            color:rgb(216, 221, 221) ;
+        }
+        .offer p{
+            color: azure;
+            opacity: 70%;
+            font-size: 20px;
+        }
+        .banner{
+            background-image:linear-gradient(to bottom, rgba(12, 12, 24, 0.6), rgba(10,10,30, 0.6)), url('/static/images/banner3.jpg'); 
+            min-height: 200px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+        }
+        .banner a{
+            text-decoration: none;
+            color:azure;
+            
+    
+        }
+        .banner a:hover{
+            background-color: goldenrod;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .inner-banner{
+            padding-top: 200px;
+            padding-bottom: 200px;
+        }
+        .offer1 img{
+            width: 100%;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .offer1{
+            background-color: rgb(6, 6, 19);
+            min-height: 600px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+        }
+        #movetop:hover {
+        opacity: 0.9;
+        transition: 0.3s ease;
+        }
+
+        #movetop span.fa {
+        line-height: 50px;
+        color: #fff;
+        font-size: 22px;
+        }
+        #movetop {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 46px;
+        height: 46px;
+        background: var(--secondary-color);
+        padding: 0;
+        opacity: 1;
+        transition: 0.3s ease;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 50px;
+        }
+
+        .offer1 hr{
+            border: 2px solid rgb(252, 255, 255);
+            margin-right:90px;
+            margin-left:90px;
+        }
+        .june:hover{
+            color: #000;
+        }
+        .offer1 h3{
+            color:rgb(216, 221, 221) ;
+        }
+        .offer1 p{
+            color: azure;
+            opacity: 70%;
+            font-size: 20px;
+        }
+        .offer a{
+            background-color: rgb(237, 185, 107);
+        }
+        .work-sec{
+            color: rgb(193, 196, 196);
+            min-height: 600px;
+            padding-top: 100px;
+        }
+        .work-sec a{
+            text-decoration: none;
+        }
+        .p-border{
+            border-radius: 15px;
+            border: 1px solid white;
+            background-color: rgb(19, 19, 63);
+            opacity: 60%;
+            color: azure;
+        }
+        .border-shape{
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .p-border li{
+            list-style-type: none;
+            padding-bottom: 15px;
+        }
+        .faq{
+            background-color:rgb(6, 6, 19) ;
+        }
+        .faq-inner{
+            padding-top: 100px;
+            padding-bottom:80px;
+            background-color:rgb(6, 6, 19) ;
+            color: azure;
+        }
+        .faq-inner hr{
+            border: 2px solid rgb(252, 255, 255);
+            margin-right:90px;
+            margin-left:90px;
+        }
+        details > summary {
+            padding: 7px;
+            width: 100%;
+            background-color:#201f1f;
+            border-radius: 5px;
+            border-bottom: 1px solid rgb(129, 115, 8);
+            box-shadow: 1px 1px 2px #bbbbbb;
+            cursor: pointer;
+        }
+
+        details > p {
+            background-color: rgb(129, 115, 8);
+            border-radius: 5px;
+
+            padding: 7px;
+            margin: 0;
+            box-shadow: 1px 1px 2px #bbbbbb;
+        }
+        .faq-last-banner{
+            background-color: rgb(143, 106, 13);
+            color: rgb(178, 183, 183);
+        }
+        .faq-last-banner .btn{
+            background-color: rgb(200, 213, 16);
+            color: #fff;
+            margin-top: 30px;
+            
+        }
+        .faq-last-banner .btn:hover{
+            background-color: rgb(232, 170, 36);
+            
+        }
+        .p-external-border{
+            background-image:linear-gradient(to bottom, rgba(9, 9, 10, 0.8), rgba(9, 9, 10, 0.8)), url('/static/images/banner2.jpg'); 
+            min-height: 600px;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+        }
+        .inner-works-sec{
+            background-color: rgb(192, 144, 72);
+            color: azure;
+        }
+        .footer{
+            min-height:500px;
+            
+        }
+        .footerLink:hover{
+            background-color: rgb(197, 146, 37);
+            border-radius: 5px;
+        }
+        .footer hr{
+            border: 1px solid rgb(241, 241, 241);
+        }
+        .footer li{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .fa-brands{
+            font-size: 20px;
+            border: 1px solid;
+            border-radius: 50%;
+            padding: 10px;
+            margin: 10px;
+        }
+        #preloader{
+            opacity: 80%;
+            background: #000 url(/static/images/gif4.gif) no-repeat center center;
+            background-size: 15%;
+            height: 100vh;
+            width: 100%;
+            position: fixed;  
+            z-index: 100;
+        }
+        
+        
+    </style>
+</head>
+<body  class="bg-warning">
+    <!-- This is the pre-loader page -->
+    <div id="preloader"></div>
+   <!-- end of the pre-loader -->
+   <!-- this is something above the navbar -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- This is the navbar section -->
+            <div class="col native">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                        <a class="navbar-brand text-black py-3" href="{{url_for('homepage')}}">
+                            <img src="/static/images/goldlogo.jpg" style="border-radius: 50%;" height="20px" width="10%" alt="Logo" class="">
+                            <span class="text-white pt-2">Gold</span>CapitalInvestment
+                        </a>
+                        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 py-2">
+                                <li class="nav-item navbarLink">
+                                    <a class="nav-link mx-3 active text-white" aria-current="page" href="{{url_for('homepage')}}">Home</a>
+                                </li>
+                                <li class="nav-item navbarLink">
+                                    <a class="nav-link mx-3 active text-white" aria-current="page" href="{{url_for('about_us')}}">About Us</a>
+                                </li>
+                                <li class="nav-item navbarLink">
+                                    <a class="nav-link june mx-3 active text-white" aria-current="page" href="{{url_for('plans')}}">Plans</a>
+                                </li>
+                                <li class="nav-item navbarLink">
+                                    <a class="nav-link mx-3 active text-white" aria-current="page" href="{{url_for('faq')}}">FAQS</a>
+                                </li>
+                                <li class="nav-item navbarLink">
+                                    <a class="nav-link mx-3 active june" href="{{url_for('contact')}}" style="color: #fff;">Contact</a>
+                                </li>
+                                <li class="nav-item my-1 text-right">
+                                    <a href="{{url_for('login')}}" class="btn btn-outline-dark navbarLink mx-3 active px-3">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        
+         <!-- end of navbar section -->
+
+
+         <!-- This is the main content area-->
+        {% block content %}
+        <div class="row justify-content-center  display1">
+            <div class=" mt-5">
+                <div class="row hero justify-content-center mt-5">
+                    <div class="col-md-6 p-5 text-white  ">
+                        <h5>Welcome to <span style="color:rgb(201, 150, 22);">Gold </span>Capital Investment</h5>
+                        <h2>Unlock Your Financial Potential with <span style="color:rgb(201, 150, 22);">Gold </span>Capital Investment</h2>
+                        <h6 style="color: #bbbbbb;" class="py-3">Join the ranks of savvy investors who trust us as the highest-paying investment company in the industry. Start earning today and watch your money work for you! With our expert guidance and proven strategies, your financial dreams are within reach. Don’t miss out on the opportunity to secure your future—invest with Gold Capital Investment now!.</h4>
+                        <a style="background-color: rgb(195, 145, 18); text-decoration: none; border-radius: 5px;" href="{{ url_for('login') }}" class=" px-4 py-2 mb-3 text-white">Open Deposit</a>
+                    </div> 
+                    <div class="col-md-5  pt-2" style="border-radius: 50%;">
+                        <img class="img-fluid" style="border-radius: 25%;" src="/static/images/goldcoin.png" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- end of the main content Area -->
+
+        <!-- maque section -->
+        <section>
+            <div class="row">
+                <div style="height:62px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 16px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io/" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a></div>
+            </div>
+        </section>
+        <!-- end of the maque section -->
+
+        <!-- this is the first bticoin section -->
+        <section class="row">
+            <div class="tradingview-widget-container "data-aos="fade-up">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener" target="_blank"><span class="blue-text">Market Data</span></a> by TradingView</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                {
+                "colorTheme": "dark",
+                "dateRange": "12m",
+                "showChart": true,
+                "locale": "en",
+                "largeChartUrl": "",
+                "isTransparent": true,
+                "width": "100%",
+                "height": "500",
+                "plotLineColorGrowing": "rgba(65, 224, 136, 1)",
+                "plotLineColorFalling": "rgba(65, 224, 136, 1)",
+                "gridLineColor": "rgba(65, 224, 136, 1)",
+                "scaleFontColor": "rgba(65, 224, 136, 1)",
+                "belowLineFillColorGrowing": "rgba(65, 224, 136, 0.12)",
+                "belowLineFillColorFalling": "rgba(65, 224, 136, 0.12)",
+                "symbolActiveColor": "rgba(65, 224, 136, 0.12)",
+                "tabs": [
+                  {
+                    "title": "Indices",
+                    "symbols": [
+                      {
+                        "s": "OANDA:SPX500USD",
+                        "d": "S&P 500"
+                      },
+                      {
+                        "s": "OANDA:NAS100USD",
+                        "d": "Nasdaq 100"
+                      },
+                      {
+                        "s": "FOREXCOM:DJI",
+                        "d": "Dow 30"
+                      },
+                      {
+                        "s": "INDEX:NKY",
+                        "d": "Nikkei 225"
+                      },
+                      {
+                        "s": "INDEX:DEU30",
+                        "d": "DAX Index"
+                      },
+                      {
+                        "s": "OANDA:UK100GBP",
+                        "d": "FTSE 100"
+                      }
+                    ],
+                    "originalTitle": "Indices"
+                  },
+                  {
+                    "title": "Commodities",
+                    "symbols": [
+                      {
+                        "s": "CME_MINI:ES1!",
+                        "d": "E-Mini S&P"
+                      },
+                      {
+                        "s": "CME:6E1!",
+                        "d": "Euro"
+                      },
+                      {
+                        "s": "COMEX:GC1!",
+                        "d": "Gold"
+                      },
+                      {
+                        "s": "NYMEX:CL1!",
+                        "d": "Crude Oil"
+                      },
+                      {
+                        "s": "NYMEX:NG1!",
+                        "d": "Natural Gas"
+                      },
+                      {
+                        "s": "CBOT:ZC1!",
+                        "d": "Corn"
+                      }
+                    ],
+                    "originalTitle": "Commodities"
+                  },
+                  {
+                    "title": "Bonds",
+                    "symbols": [
+                      {
+                        "s": "CME:GE1!",
+                        "d": "Eurodollar"
+                      },
+                      {
+                        "s": "CBOT:ZB1!",
+                        "d": "T-Bond"
+                      },
+                      {
+                        "s": "CBOT:UB1!",
+                        "d": "Ultra T-Bond"
+                      },
+                      {
+                        "s": "EUREX:FGBL1!",
+                        "d": "Euro Bund"
+                      },
+                      {
+                        "s": "EUREX:FBTP1!",
+                        "d": "Euro BTP"
+                      },
+                      {
+                        "s": "EUREX:FGBM1!",
+                        "d": "Euro BOBL"
+                      }
+                    ],
+                    "originalTitle": "Bonds"
+                  },
+                  {
+                    "title": "Forex",
+                    "symbols": [
+                      {
+                        "s": "FX:EURUSD"
+                      },
+                      {
+                        "s": "FX:GBPUSD"
+                      },
+                      {
+                        "s": "FX:USDJPY"
+                      },
+                      {
+                        "s": "FX:USDCHF"
+                      },
+                      {
+                        "s": "FX:AUDUSD"
+                      },
+                      {
+                        "s": "FX:USDCAD"
+                      }
+                    ],
+                    "originalTitle": "Forex"
+                  }
+                ]
+              }
+                </script>
+              </div>
+              <!-- TradingView Widget END -->
+              <br>
+
+              
+          <!-- ============================================================================================================================ -->
+   <div class="tradingview-widget-container__widget row swiper-slide" data-aos="fade-down"></div>
+   <script type   ="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+   {
+   "width": "100%",
+   "height": "400",
+   "colorTheme": "dark",
+   "currencies": [
+     "EUR",
+     "USD",
+     "JPY",
+     "GBP",
+     "CHF",
+     "AUD",
+     "CAD",
+     "NZD",
+     "CNY"
+   ],
+   "locale": "en"
+ }
+   </script>
+ </div>
+        </section>
+        
+
+       
+
+     
+        <!-- Area for why choose us -->
+        <section class="bg-light row" data-aos="fade-up" data-aos-duration="1500">
+            <div class="row justify-content-center choose-us">
+                <div class="col-md-10 mx-0 ">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-3 mb-2">
+                            <h2 class="text-black">Why Choose Us</h2>
+                            
+                        </div>
+                    </div>
+                    <div class="row mx-2  justify-content-center card-body px-2 text-center text-white">
+                        <div class="col-md-3 m-4 bord  p-5">
+                            <i class="text-success fa-solid fa-3x pb-3  fa-lock"></i>
+                            <h4>Safe and Secure</h4>
+                            <h6>Top nothc security measures, for inner and external transactions and personal data encryption standart option.</h6>
+                        </div>
+                        <div class="col-md-3 m-4 bord p-5">
+                            <i class="text-danger fa-solid fa-3x pb-3 fa-chart-simple"></i>
+                            <h4>Daily Earning</h4>
+                            <h6>Register and enjoy daily earnings on every calender day.</h6>
+                        </div>
+                        <div class="col-md-3 m-4 bord p-5">
+                            <i class="fa-solid text-success fa-3x pb-3 fa-money-bill-transfer"></i>
+                            <h4>Instant Payouts</h4>
+                            <h6>payouts and withdrawals are processed as fast as possible with the help of our automated system.</h6>
+                        </div>
+                        <div class="col-md-3 m-4 bord p-5">
+                            <i class="fa-solid fa-3x pb-3 fa-database"></i>
+                            <h4>Worldwide Datacenter</h4>
+                            <h6>100% uptime guarantee, thanks to our highly advanced data center network around the globe.</h6>
+                        </div>
+                        <div class="col-md-3 m-4 bord p-5">
+                            <i class="text-success fa-solid fa-3x pb-3 fa-phone"></i>
+                            <h4>24/7 Support</h4>
+                            <h6>Dedicated support via email,phone and live chat around the clock to answer your questions at a time.</h6>
+                        </div>
+                        <div class="col-md-3 m-4 bord p-5">
+                            <i class="fa-solid fa-3x pb-3 fa-money-bill"></i>
+                            <h4>Investment Management</h4>
+                            <h6>A unique online platform modifiied to automatically recieve investment payments and calculate profits.</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of choose us -->
+        <!-- Section what we offer -->
+        <!-- other Bitcoin section -->
+        <section>
+            <div class="row justify-content-center offer">
+                
+                    <div data-aos="fade-up" style="height:560px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #0e1404; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #7c6a04;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:540px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=dark&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe></div><div style="color:#0f1f08; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><span style="color: #ebebeb;"><strong>Crypto currency Trades</strong></span>&nbsp;</div></div>
+                
+            </div>
+        </section>
+        <section>
+            <div class="row justify-content-center offer" data-aos="fade-up" data-aos-duration="1500">
+                <div class="col-md-10">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-3 mb-2 mt-5">
+                            <h2>About Us</h2>
+                            
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-4 pt-4 pb-5"><img src="/static/images/goldbannernew.jpg" width="100%" height="" class="img-fluid" alt="crpto currrency"></div>
+                        <div class="col-md-4 pt-4 pb-5"><img src="/static/images/crypt5.jpg" style="height: 82%;" alt=""></div>
+                        <div class="col-md-4 ml-2 py-5 px-4">
+                            <p class="pt-3">Gold Capital Investment is one of Americas's leading Bitcoin Investment company. We work hard to create value for the future on behalf of our crypto currency investors.
+                                Why choose US as your Gold Capital Investments? Good investment decisions depend on good judgment. Good judgment is only possible with relevant knowledge and experience. At Finance Capital Investment we know the Regional representatives we invest in, and we know why we chose them. They are Investors we believe will create value over time.</p>
+                            <a href="{{ url_for('login') }}" style="color: rgb(164, 132, 25); text-decoration: none;" class="  text-white btn px-4 py-2">Read More</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- End of what we offer -->
+        <!-- How it works section -->
+        <section>
+            <div class="row justify-content-center work-sec">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4 py-5 px-2">
+                            <h3 class="pb-2">How it works?</h3>
+                            <p>Start earning from Gold Capital Investment with the Four easy steps below.</p>
+                            <a href="{{ url_for('login') }}" class="btn inner-works-sec btn-warning" >GET STARTED</a>
+                        </div>
+                        <div class="col-md-4 py-5">
+                            <h3 class="pb-2"> <i class="fa-solid fa-user-plus"></i> Create An Account</h3>
+                            <p class="pb-5">Create an Account <a href="{{ url_for('register') }}" style="text-decoration: none; color: rgb(231, 204, 27);">Click here to create an account. It's free!</a></p>
+                            <h3 class="pb-2"><i class="fa-solid fa-download"></i> Fund Account</h1>
+                            <p class="pb-5">Fund your account through our payment channel with any amount.</p>
+                            
+                        </div>
+                        <div class="col-md-4 py-5 pl-3 ">
+                            <h3 class="pb-2"></i><i class="fa-solid fa-cart-shopping"></i> Invest in Plan</h3>
+                            <p class="pb-5">Invest in preferred profitable plan to start up your investment.</p>
+                            <h3 class="pb-2"><i class="fa-solid fa-sack-dollar"></i> Start Earning</h3>
+                            <p class="pb-5">Start earning profits and can requet for for withdrawal after your investmentis complete.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section >
+    <section class=" justify-content-center" style="background-color: #d8d5d5; ">
+        <div class="row text-center py-5">
+            <h2>Investment Proposals</h2>
+            <p> Gold Capital Investment employees ensure that every investor in our company can earn money
+            </p>
+        </div>
+            <div class=" row justify-content-center">
+                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 my-5" style="border: 1px solid #8dbe44; border-radius: 10px; background-color: #082e16;">
+                            <div class="deposits__calculate ">
+                                <div class="calculate-profit"><h4 class="text-center py-3" style="color: #dedada;">CALCULATE PROFIT</h4>
+                                  <form class="px-3">
+                                    <div class="calculate-profit__block"> 
+                                      <div class="calculate-profit__block-row">
+                                        <div class="field"> 
+                                          <label class="pb-2" style="color: #d0d0d0;">Tariff Plan</label>
+                                          <div class="select-deposit"> 
+                                            <div class="select-deposit__trigger">
+                                            
+                                            </div>
+                                            <select name="" id="selectid" class="form-control">
+                                              <option value="2" data-percent="21.8"><h4>Starter <span class="text-danger"> 21.8<sup>%</sup></span></h4></option>
+                                              <option value="3" data-percent="42.5"><h4>Standard 42.5 </h4><sup>%</sup></option>
+                                              <option value="4" data-percent="63.3"><h4>Premium 63.5</h4><sup>%</sup></option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="field "> 
+                                          <label class="py-2 calculate">Deposit Amount</label>
+                                          <b id="eror"style="color: red;"></b>
+                                          <div class="field-group"> 
+                                            <input class="field-gray field-counter form-control" type="number" name="amount" id="sum" value="100">
+                                           
+                                          </div>
+                                        </div>
+                                        <ul class="calculate-stats pt-5" style="list-style: none; text-decoration: none;"> 
+                                          <li>
+                                            <p class="calculate-stats__desc calculate">Daily Income                                
+                                            </p>
+                                            <h2 class="calculate-stats__value text-white" id="daily">-</h2>
+                                            
+                                          </li>
+                                          <li class="calculate-stats__separate-li">
+                                            <div class="calculate-stats__separate">
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <p class="calculate-stats__desc calculate">Weekly Income</p>
+                                            <h2 class="calculate-stats__value text-white"id="weekly">-</h2>
+                                           
+                                          </li>
+                                          <li class="calculate-stats__separate-li">
+                                            <div class="calculate-stats__separate">
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <p class="calculate-stats__desc calculate">Monthly Income</p>
+                                            <h2 class="calculate-stats__value text-white"id="mountly">-</h2>
+                                         
+                                          </li>
+                                        </ul>
+                                         
+                                  <a class="btn btn-outline-success mb-4" href="{{url_for('login')}}">Deposit</a>
+                                                         </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6 text-center px-5 " style="padding-top: 5%;">
+                            <h2>GENERAL COMMISSIONS</h2>
+                            <hr>
+                            <p class="pb-5">
+                                These commissions are charged by Gold Capital Investment for the platform to work. They are not related to the profit received by our investors
+                            </p>
+                            <h2>COMPANY COMMISSION</h2>
+                            <hr>
+                            <p class="pb-5">
+                                0.5% from the received profit by the robot. This commission shows the earnings of the entire Gold Capital Investment structure, namely, each employee.
+                            </p>
+
+                            <h2>ADMINISTRATIVE COMMISSION</h2>
+                            <hr>
+                            <p>
+                                0.5% for technical support of the robot and the company as a whole. This commission includes the development and marketing costs of the company.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+      <script src="/static/js/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      
+  //Calculator
+  function calc(n){
+  
+  select = document.getElementById("selectid");
+  tar = select.value;
+  
+  alert;
+  var okrs	= [2];
+  
+  
+   minMoneyur2 = 5000;
+   
+   minMoneyu2 = (5000);
+   maxMoneyu2 = (25000);
+   
+  valut = "USD";
+  
+  
+   minMoneyur3 = 25000;
+   
+   minMoneyu3 = (25000);
+   maxMoneyu3 = (250000);
+   
+  valut = "USD";
+  
+  
+   minMoneyur4 = 250000;
+   
+   minMoneyu4 = (25100);
+   maxMoneyu4 = (1000000);
+   
+  valut = "USD";
+  
+  
+  
+  
+          
+  
+      if(tar == 2){
+          
+  var percent 	= [0.021];
+          
+  
+          minMoneyr = minMoneyur2;
+          minMoney = minMoneyu2;
+          maxMoney = maxMoneyu2;
+      
+      }
+      if(tar == 3){
+          
+  var percent 	= [0.042];
+          
+  
+          minMoneyr = minMoneyur3;
+          minMoney = minMoneyu3;
+          maxMoney = maxMoneyu3;
+      
+      }
+      if(tar == 4){
+          
+  var percent 	= [0.063];
+          
+  
+          minMoneyr = minMoneyur4;
+          minMoney = minMoneyu4;
+          maxMoney = maxMoneyu4;
+      
+      }
+  
+      
+      
+          if(!n){
+              document.getElementById("sum").value = minMoneyr; 
+          }
+          
+          if(parseFloat($("#sum").val())<minMoney){
+      $("#eror").text("Min: " + minMoney +"");
+          }else if(parseFloat($("#sum").val())>maxMoney){
+      $("#eror").text("Max: " + maxMoney +"");
+          }else if(parseFloat($("#sum").val())<=maxMoney){
+      $("#eror").text("");
+          }
+              
+  
+  
+      amount = parseFloat($("#sum").val());
+          
+              daily = amount * percent;
+              daily = daily.toFixed(okrs);
+              weekly = daily * 7;
+              weekly = weekly.toFixed(okrs);
+              mountly = daily * 30;
+              mountly = mountly.toFixed(okrs);
+  
+              if(amount < minMoney || isNaN(amount) == true){
+                  $("#daily").text("-");
+                  $("#weekly").text("-");
+                  $("#mountly").text("-");
+                  
+              } else {			
+                  $("#daily").html(daily +'<sub> '+ valut +' </sub>');
+                  $("#weekly").html(weekly +'<sub> '+ valut +' </sub>');
+                  $("#mountly").html(mountly +'<sub> '+ valut +' </sub>');
+              }
+  
+              
+  
+      }
+      
+  
+      
+      if($("#sum, #selectid").change){
+          calc(false);
+      }
+      $("#sum").keyup(function(){
+          calc(true);
+      });
+      $("#selectid").click(function(){
+          calc(false);
+      });
+      $("#selectid").change(function(){
+          calc(false);
+      });
+  }); 
+  </script>  
+        </section>
+        <!-- End of how it works section -->
+        <!-- Select plan section -->
+        <section>
+            <div class="row justify-content-center p-external-border text-center">
+                <div class="col-md-12 px-5 my-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            <h3 class="pt-3" style="color: azure; opacity: 70%;">Choose Your Plan</h3>
+                            <hr style="border: 2px solid rgb(252, 255, 255);
+                            margin-right:90px;
+                            margin-left:90px;">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center px-2">
+                        
+                        <div class="col-md-3 p-border px-0  m-3  mb-4" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="border-shape text-white py-4" style="background-color: rgb(10, 74, 26);"><h3>STARTER PLAN</h3></div>
+                            <div class="py-4" style="background-color: rgb(115, 189, 92);"><h3>21.8% DEPOSIT BONUS</h3></div>
+                            <div>
+                                <ul>
+                                    <li class="pt-4">Minimum: 5,000USD</li>
+                                    <li>Maximium: 20,000USD</li>
+                                    <li>Senior Broker</li>
+                                    <li>Beginners Guide</li>
+                                    <li><a href="{{ url_for('login') }}" class="btn btn-success px-4" style="background-color: rgba(37, 173, 32, 0.51); color: azure;">GET STARTED</a></li>
+                                </ul>
+        
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-border px-0  m-3 mb-4" data-aos="fade-up" data-aos-duration="1600">
+                            <div class=" border-shape text-white py-4" style="background-color: rgb(97, 29, 97);"><h3>PREMIUM PLAN</h3></div>
+                            <div class="py-4" style="background-color: rgb(147, 80, 147);"><h3>42.5% EARNINGS</h3></div>
+                            <div >
+                                <ul >
+                                    <li class="pt-4">Minimum: 50,000USD</li>
+                                    <li>Maximium: 250,000USD</li>
+                                    <li>EP Broker</li>
+                                    <li>Pro Guide</li>
+                                    <li><a href="{{ url_for('login') }}" class="btn px-3" style="background-color: rgb(156, 75, 165); color: white;">GET STARTED</a></li>
+                                </ul>
+        
+                            </div>
+                        </div>
+                        <div class="col-md-3 p-border px-0  m-3  mb-4" data-aos="fade-up" data-aos-duration="1700">
+                            <div class="border-shape text-white py-4" style="background-color: rgb(193, 159, 4);"><h3>GOLD PREMIUM PLAN</h3></div>
+                            <div class="py-4" style="background-color: rgb(222, 172, 55);"><h3>63.3% EARNINGS</h3></div>
+                            <div >
+                                <ul>
+                                    <li class="pt-4">Minimum: 250,000USD</li>
+                                    <li>Maximium: UNLIMITED</li>
+                                    <li>Senior Broker</li>
+                                    <li>Beginners Guide</li>
+                                    <li><a href="#" class="btn px-3 text-white" style="background-color: rgb(131, 106, 6);">GET STARTED</a></li>
+                                </ul>
+        
+                            </div>
+                        </div>
+        
+                        
+                        
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of select plan section -->
+        {% endblock content %}
+        <!-- This is the footer section -->
+        <!-- <hr style="border: 1px solid white;"> -->
+        <div class="row justify-content-center  py-5 footer" style="background-color: #0a0a0a;">
+            <div class="col-md-11 mb-3">
+                <div class="row justify-content-center text-center text-white">
+                    <div class="col-md-3 py-5 px-3">
+                        <h3 class="pb-2"><span style="color: rgb(181, 136, 24);"><div class="pb-2"><img src="/static/images/goldlogo.jpg" style="border-radius: 50%;" height="47px" width="14%" alt="Logo"></div>Gold </span>Capital Investment</h3>
+                        <p>The highest paying and trusted investment company. Start earning with Finance Capital Investment today.</p>
+                        <a href="#"><i class="fa-brands footerLink fa-facebook text-white"></i></a>
+                        <a href="#"><i class="fa-brands footerLink fa-twitter text-white "></i></a>
+                        <a href="#"><i class="fa-brands footerLink fa-instagram text-white"></i></a>
+                        <a href="http://wa.me/15705506033"><i class="fa-brands footerLink fa-whatsapp text-white"></i></a>
+                    </div>
+                    <div class="col-md-3">
+                        <ul style="list-style-type: none;" class="p-5">
+                            <h3>Quick Link</h3>
+                            <li><a href="{{url_for('about_us')}}" style="text-decoration: none; color: #fff;">About</a></li>
+                            <li><a href="{{ url_for('contact')}}" style="text-decoration: none; color: #fff;">Contact</a></li>
+                            <li><a href="{{ url_for('faq')}}" style="text-decoration: none; color: #fff;">FAQS</a></li>
+                            <li><a href="{{ url_for('login')}}" style="text-decoration: none; color: #fff;">Login</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul style="list-style-type: none;" class="p-5">
+                            <h3>Contact Information</h3>
+                            <li>+1 (570) 550‑6033</li>
+                            <li>Info@capitalgold.us</li>
+                            <li>Head Office Ireland : <br>Level 1, The Chase, Carmanhall Rd, Sandyford, Dublin, D18 Y3X2, Ireland</li>
+                            <li>Head Office Canada : <br>1188 W Georgia St #1830, Vancouver, BC V6E 4A2, Canada</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-md-3 p-5">
+                        <h3 class="py-3">News Letter</h3>
+                        <h6>By subscribing to our mailing list you will always be update with the latest news from us.</h6>
+                        <input type="text" class="form-control my-3" >
+                        <a href="#" class="btn btn-outline-warning form-control my-1">Subscribe</a>
+                        
+                    </div>
+                    
+                </div>
+                <hr style="border: 1px solid white;">
+                <div class="row justify-content-center text-center">
+                    <div class="col text-white">
+                        <h6 >Copyright &copy 2024 <span style="color: rgb(190, 143, 24);">Gold</span> Capital Investment . All Rights Reserved.
+                            <a href="#" style="text-decoration: none; color: rgb(231, 204, 27);">Privacy Policy | Terms of Use</a></h6>
+                    </div>
+                </div>
+            </div>
+            <script async src='../d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+            <script>
+              var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":40,"marginLeft":20,"marginRight":20,"btnPosition":"left","whatsAppNumber":"12342280309","welcomeMessage":"Hello","zIndex":999999,"btnColorScheme":"light"};
+              window.onload = () => {
+                _waEmbed(wa_btnSetting);
+              };
+            </script>
+        </div>
+        <!-- End of footer section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <button style="background-color: rgb(220, 176, 32) ;" onclick="topFunction()" id="movetop" title="Go to top">
+        &#10548;
+      </button>
+      <!-- <script>
+      
+        </script> -->
+        <!-- /move top -->
+    <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+            scrollFunction()
+          };
+    
+          function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              document.getElementById("movetop").style.display = "block";
+            } else {
+              document.getElementById("movetop").style.display = "none";
+            }
+          }
+    
+          // When the user clicks on the button, scroll to the top of the document
+          function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }
+    
+        var loader = document.getElementById("preloader");
+    
+        window.addEventListener("load",function(){
+            loader.style.display ="none"
+        })
+        const sections = document.querySelectorAll('section');
+        const options = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+       
+       
+    
+      </script>
+      <script>
+        (function (w, d, s, u) {
+        w.gbwawc = {
+        url: u,
+        options: {
+                waId: "+1 5705506033",
+                siteName: "Goldcustomerservice",
+                siteTag: "Online",
+                siteLogo: "https://assets.gallabox.com/gb-home/wa-chat-widget/bot+avatars/2.png",
+                widgetPosition: "LEFT",
+                triggerMessage: "Available to assist",
+                welcomeMessage: "welcome to Gold capital investment, how may i be off assistant",
+                brandColor: "#25D366",
+                messageText: "",
+                replyOptions: ['looking to make an investment','issues with your log in'],
+            },
+        };
+        var h = d.getElementsByTagName(s)[0],
+        j = d.createElement(s);
+        j.async = true;
+        j.src = u + "/whatsapp-widget.min.js?_=" + Math.random();
+        h.parentNode.insertBefore(j, h);
+        })(window, document, "script", "https://waw.gallabox.com");
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="/static/js/login.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+ 
+</body>
+</html>
